@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Progress } from '@/components/ui/progress';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Button } from '@/components/ui/button';
+import Link from 'next/link';
 import Header from '@/components/layout/header';
 
 interface ElectionData {
@@ -45,6 +47,19 @@ export default function ElectionDataPanel({ params }: { params: { id: string } }
       <Header />
       <div className="container mx-auto px-4 py-8">
         <h1 className="text-3xl font-bold mb-6">Painel de Dados da Eleição</h1>
+
+        <div className="mb-6 flex space-x-4">
+          <Button asChild>
+            <Link href={`/${params.id}/votar`}>Votar</Link>
+          </Button>
+          <Button asChild variant="outline">
+            <Link href={`/${params.id}/candidatos`}>Ver Candidatos</Link>
+          </Button>
+          <Button asChild variant="outline">
+            <Link href={`/${params.id}/resultados`}>Ver Resultados</Link>
+          </Button>
+        </div>
+
         <Tabs defaultValue="overview">
           <TabsList className="grid w-full grid-cols-3">
             <TabsTrigger value="overview">Visão Geral</TabsTrigger>
