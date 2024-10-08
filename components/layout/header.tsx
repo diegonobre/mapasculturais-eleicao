@@ -1,12 +1,9 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { usePathname } from 'next/navigation';
 import { Button } from '@/components/ui/button';
-import { Home, Users, Calendar, MapPin, FileText, Scissors, Menu } from 'lucide-react';
+import { Home, Menu } from 'lucide-react';
 
 export default function Header() {
-  const currentRoute = usePathname();
-
   return (
     <header className="bg-white shadow-sm">
       <div className="container mx-auto px-4">
@@ -16,42 +13,7 @@ export default function Header() {
           </Link>
 
           <nav className="hidden md:flex space-x-4">
-            <NavItem href="#" icon={<Home className="w-4 h-4" />} label="Home" />
-            <NavItem
-              href="#"
-              icon={<FileText className="w-4 h-4" />}
-              label="Oportunidades"
-              isActive={currentRoute === '/oportunidades'}
-            />
-            <NavItem
-              href="#"
-              icon={<Users className="w-4 h-4" />}
-              label="Agentes"
-              isActive={currentRoute === '/agentes'}
-            />
-            <NavItem
-              href="#"
-              icon={<Calendar className="w-4 h-4" />}
-              label="Eventos"
-              isActive={currentRoute === '/eventos'}
-            />
-            <NavItem
-              href="#"
-              icon={<MapPin className="w-4 h-4" />}
-              label="Espaços"
-              isActive={currentRoute === '/espacos'}
-            />
-            <NavItem
-              href="#"
-              icon={<FileText className="w-4 h-4" />}
-              label="Projetos"
-              isActive={currentRoute === '/projetos'}
-            />
-            <NavItem
-              href="https://www.gov.br/culturaviva/pt-br"
-              icon={<Scissors className="w-4 h-4" />}
-              label="Cultura Viva"
-            />
+            <NavItem href="/" icon={<Home className="w-4 h-4" />} label="Eleições" />
           </nav>
 
           <div className="flex items-center space-x-4">
